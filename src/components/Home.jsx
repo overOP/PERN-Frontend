@@ -31,15 +31,15 @@ const Home = () => {
                   <img
                     src={dessert.img}
                     alt={dessert.name}
-                    className="rounded-lg mb-3 w-full h-36 object-cover"
+                    className="rounded-lg mb-3 w-full object-cover"
                   />
+                  <button className="w-full bg-[#f8f1e8] text-[#d4492b] rounded-2xl py-2 text-sm font-semibold hover:bg-[#f3e3d6]">
+                  <img className='inline mr-2' src='public/homeImg/icon-add-to-cart.svg'></img> Add to Cart
+                </button>
                   <h2 className="text-base font-medium leading-tight mb-1">{dessert.name}</h2>
                   <p className="text-sm text-gray-500 mb-1">{dessert.type}</p>
                   <p className="text-[#d4492b] font-semibold text-sm">{dessert.price}</p>
                 </div>
-                <button className="mt-4 w-full bg-[#f8f1e8] text-[#d4492b] rounded-md py-2 text-sm font-semibold hover:bg-[#f3e3d6]">
-                  <img className='inline mr-2' src='public/homeImg/icon-add-to-cart.svg'></img> Add to Cart
-                </button>
               </div>
             ))}
           </div>
