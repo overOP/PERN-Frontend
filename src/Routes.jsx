@@ -3,6 +3,7 @@ import MainLayout from "./Layout/MainLayOut";
 import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Contact from "./components/Contact";
+import Form from "./components/Form";
 
 export const router = createBrowserRouter([
     {
@@ -14,13 +15,18 @@ export const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/signup",
-                element: <SignUp />,
-            },
-            {
                 path: "/contact",
                 element: <Contact />,
             },
+            {
+                path: "/form",
+                element: <Form />,
+            },
+            {
+                path: "/signup",
+                element: <SignUp />,
+            },
+            
         ],
     }
 ])

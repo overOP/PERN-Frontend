@@ -28,12 +28,13 @@ const Home = () => {
                 className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between p-3 h-full"
               >
                 <div>
+                <div className=' ralative '>
                   <img
                     src={dessert.img}
                     alt={dessert.name}
                     className="rounded-lg mb-3 w-full object-cover"
-                  />
-                  <button className="w-full bg-[#f8f1e8] text-[#d4492b] rounded-2xl py-2 text-sm font-semibold hover:bg-[#f3e3d6]">
+                  /></div>
+                  <button className="w-40 absolute ml-16 border border-[#c4c1b9] bg-[#f8f1e8] text-[#d4492b] rounded-2xl py-2 text-sm font-semibold hover:bg-[#f3e3d6]">
                   <img className='inline mr-2' src='public/homeImg/icon-add-to-cart.svg'></img> Add to Cart
                 </button>
                   <h2 className="text-base font-medium leading-tight mb-1">{dessert.name}</h2>
