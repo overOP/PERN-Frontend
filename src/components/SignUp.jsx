@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 
 const SignUp = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true); // Is the user currently on the login or signup tab?
+  const [showPassword, setShowPassword] = useState(false); // Should the password input show the password or not?
 
+  // Handle when the user clicks on the login or signup tab
   const handleTabClick = (isLoginTab) => {
     setIsLogin(isLoginTab);
   };
 
+  // Handle when the user clicks on the show/hide password button
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // Return the JSX for the login/signup form
   return (
     <div className='bg-[#a6a3d9] flex items-center justify-center min-h-screen'>
       <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6">
@@ -36,7 +44,20 @@ const SignUp = () => {
         {isLogin ? (
           <form id="loginForm" className="space-y-4">
             <input type="email" placeholder="Email Address" className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <input type="password" placeholder="Password" className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Password"
+                className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="button"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                onClick={handlePasswordVisibility}
+              >
+                {showPassword ? <img className='w-6' src="/public/eye.png" alt="Show Password" /> : <img className='w-6' src="/public/view.png" alt="Hide Password" />}
+              </button>
+            </div>
             <a href="#" className="text-blue-500 text-sm block mb-2">Forgot password?</a>
             <button type="submit" className="w-full bg-gradient-to-r from-blue-900 to-blue-500 text-white py-3 rounded-md font-semibold">LogIn</button>
             <p className="text-sm text-center">Not a member? <a href="#" className="text-blue-500">SignUp now</a></p>
@@ -44,8 +65,34 @@ const SignUp = () => {
         ) : (
           <form id="signupForm" className="space-y-4">
             <input type="email" placeholder="Email Address" className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <input type="password" placeholder="Password" className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <input type="password" placeholder="Confirm password" className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Password"
+                className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="button"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                onClick={handlePasswordVisibility}
+              >
+                {showPassword ? <img className='w-6' src="/public/eye.png" alt="Show Password" /> : <img className='w-6' src="/public/view.png" alt="Hide Password" />}
+              </button>
+            </div>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Confirm password"
+                className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="button"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                onClick={handlePasswordVisibility}
+              >
+                {showPassword ? <img className='w-6' src="/public/eye.png" alt="Show Password" /> : <img className='w-6' src="/public/view.png" alt="Hide Password" />}
+              </button>
+            </div>
             <button type="submit" className="w-full bg-gradient-to-r from-blue-900 to-blue-500 text-white py-3 rounded-md font-semibold">SignUp</button>
           </form>
         )}
