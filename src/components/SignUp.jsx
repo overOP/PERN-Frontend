@@ -4,9 +4,41 @@ import Input from './input';
 
 const SignUp = () => {
   const {register, handleSubmit, formState: {errors}} = useForm();
-  const {register:signinregister, handleSubmit:signinhandleSubmit, formState: {errors:signinerrors}} = useForm();
 
-  const [isLogin, setIsLogin] = useState(true);
+  //SignUp
+  const signup = async (data) => {
+    try {
+      const response = await fetch('http://localhost:3000/SignUp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const dataResponse = await response.json();
+      console.log(dataResponse);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+  //Login
+  const login = async (data) => {
+    try {
+      const response = await fetch('http://localhost:3000/Login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const dataResponse = await response.json();
+      console.log(dataResponse);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+  const [isLogin, setIsLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTabClick = (isLoginTab) => {
@@ -45,7 +77,7 @@ const SignUp = () => {
         </div>
 
         {isLogin ? (
-          <form id="loginForm" className="space-y-4" onSubmit={handleSubmit((data) => console.log(data))}>
+          <form id="loginForm" className="space-y-4" onSubmit={handleSubmit((data) => login(data))}>
             <Input
               type="email"
               placeholder="Email Address"
@@ -73,20 +105,20 @@ const SignUp = () => {
             <p className="text-sm text-center">Not a member? <a href="#" className="text-blue-500">SignUp now</a></p>
           </form>
         ) : (
-          <form id="signupForm" className="space-y-4" onSubmit={signinhandleSubmit((data) => console.log(data))}>
+          <form id="signupForm" className="space-y-4" onSubmit={handleSubmit((data) => signup(data))}>
           <Input
               type="email"
               placeholder="Email Address"
-              {...signinregister('email', {
+              {...register('email', {
                 required: 'Email is required',
               })}
             />
-            {errors.email && (<span className="text-red-500">{signinerrors?.email.message}</span>)} 
+            {errors.email && (<span className="text-red-500">{errors?.email.message}</span>)} 
             <div className="relative">
               <Input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
-                {...signinregister('password')}
+                {...register('password')}
               />
               <button
                 type="button"
@@ -100,7 +132,7 @@ const SignUp = () => {
               <Input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
-                {...signinregister('confirmPassword')}
+                {...register('confirmPassword')}
               />
               <button
                 type="button"
