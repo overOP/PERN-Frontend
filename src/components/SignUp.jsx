@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useForm} from 'react-hook-form';
-import Input from './input';
+import Input from './Input';
 
 const SignUp = () => {
   const {register, handleSubmit, formState: {errors}} = useForm();
@@ -8,7 +8,7 @@ const SignUp = () => {
   //SignUp
   const signup = async (data) => {
     try {
-      const response = await fetch('http://localhost:3000/SignUp', {
+      const response = await fetch('http://localhost:3000/users/signUp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const SignUp = () => {
   //Login
   const login = async (data) => {
     try {
-      const response = await fetch('http://localhost:3000/Login', {
+      const response = await fetch('http://localhost:3000/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -275,4 +275,5 @@ export default SignUp;
 // };
 
 // export default SignUp;
+
 

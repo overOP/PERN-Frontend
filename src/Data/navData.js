@@ -15,6 +15,21 @@ export const navData = [
         url: "/form",
     },
     {
+        id: 4,
+        title: "UpImg",
+        url: "/upimg",
+    },
+    {
+        id: 5,
+        title: "ImgApi",
+        url: "/imgApi",
+    },
+    {
+        id: 4,
+        title: "dataApi",
+        url: "/dataApi",
+    },
+    {
         id: 3,
         title: "SignUp",
         url: "/signup",
