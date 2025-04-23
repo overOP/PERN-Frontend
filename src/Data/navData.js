@@ -16,16 +16,6 @@ export const navData = [
     },
     {
         id: 4,
-        title: "UpImg",
-        url: "/upimg",
-    },
-    {
-        id: 5,
-        title: "ImgApi",
-        url: "/imgApi",
-    },
-    {
-        id: 4,
         title: "dataApi",
         url: "/dataApi",
     },

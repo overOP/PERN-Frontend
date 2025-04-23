@@ -5,8 +5,6 @@ import SignUp from "./components/SignUp";
 import Contact from "./components/Contact";
 import Form from "./components/Form";
 import DataApi from "./components/dataApi";
-import UpImg from "./components/UpImg";
-import ImgApi from "./components/ImgApi";
 
 export const router = createBrowserRouter([
     {
@@ -24,14 +22,6 @@ export const router = createBrowserRouter([
             {
                 path: "/form",
                 element: <Form />,
-            },
-            {
-                path: "/upimg",
-                element: <UpImg />,
-            },
-            {
-                path: "/imgApi",
-                element: <ImgApi />,
             },
             {
                 path: "/dataApi",

@@ -34,11 +34,10 @@ const DataApi = () => {
         error && <p className='text-red-500'>{error.message}</p>
       }
       {
-        users.map((post, index) => (
+        users.map((users, index) => (
           <div key={index} className='flex flex-col items-center justify-center'>
-            <li>{post.file}</li>
-            <li>{post.title}</li>
-            <li>{post.descrptione}</li>
+          <li>{users.id}</li>
+          <li>{users.email}</li>
           </div>
         ))
       }
