@@ -12,7 +12,7 @@ const DataApi = () => {
           {loading && <p className='text-blue-500'>Data is loading</p>}
           {error && <p className='text-red-500'>{error.message}</p>}
           {users.map((user, index) => (
-            <div key={index} className='flex flex-col items-center justify-center'>
+            <div key={index} className='flex text-white items-center justify-center border-2 border-blue-500 rounded-lg p-3 m-2'>
               <li>{user.id}</li>
               <li>{user.email}</li>
             </div>

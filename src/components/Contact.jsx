@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { FaGithub } from 'react-icons/fa'
+import { FaLinkedin } from 'react-icons/fa'
 
 const Contact = () => {
   return (
@@ -14,10 +16,10 @@ const Contact = () => {
         </p>
         <ul className="list-none mb-8">
           <li className="mb-2">
-            <a href="https://www.linkedin.com/in/pradeep-chaudhary-0a49b331a/" className="text-blue-500 hover:underline">Linkedin</a>
+          <FaLinkedin /><a href="https://www.linkedin.com/in/pradeep-chaudhary-0a49b331a/" className="text-blue-500 hover:underline">Linkedin</a>
           </li>
           <li className="mb-2">
-            <a href="https://github.com/overOP" className="text-blue-500 hover:underline">GitHub</a>
+          <FaGithub /><a href="https://github.com/overOP" className="text-blue-500 hover:underline">GitHub</a>
           </li>
         </ul>
         <p className="text-lg">
