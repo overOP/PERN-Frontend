@@ -1,42 +1,82 @@
 import React, { useState } from 'react';
 import {useForm} from 'react-hook-form';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 import Input from './Input';
 
 const SignUp = () => {
+  //it is used to navigate between pages
+  const navigate = useNavigate();
+  
   const {register, handleSubmit, formState: {errors}} = useForm();
 
   //SignUp
-  const signup = async (data) => {
-    try {
-      const response = await fetch('http://localhost:3000/users/signUp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      const dataResponse = await response.json();
-      console.log(dataResponse);
-    } catch (error) {
-      console.error('Error:', error);
+const signup = async (data) => {
+  try {
+    const response = await axios.post('http://localhost:3000/users/signUp', data);
+    console.log(response.data);
+    if (response.data.success) {
+      alert('SignUp successful');
     }
+    // Store the token in local storage
+    const accessToken = response.data.accessToken;
+    localStorage.setItem('accessToken', accessToken);
+    // Redirect to the home page
+    navigate('/');
+  } catch (error) {
+    console.error('Error:', error);
+    alert('SignUp failed');
   }
+}
+  // const signup = async (data) => {
+  //   try {
+  //     const response = await fetch('http://localhost:3000/users/signUp', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+  //     const dataResponse = await response.json();
+  //     console.log(dataResponse);
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // }
+
   //Login
   const login = async (data) => {
     try {
-      const response = await fetch('http://localhost:3000/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      const dataResponse = await response.json();
-      console.log(dataResponse);
+      const response = await axios.post('http://localhost:3000/users/login', data);
+      console.log(response.data);
+      if (response.data.success) {
+        alert('Login successful');
+      }
+      // Store the token in local storage
+      const accessToken = response.data.accessToken;
+      localStorage.setItem('accessToken', accessToken);
+      // Redirect to the home page
+      navigate('/');
     } catch (error) {
       console.error('Error:', error);
+      alert('Login failed');
     }
   }
+  // const login = async (data) => {
+  //   try {
+  //     const response = await fetch('http://localhost:3000/users/login', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+  //     const dataResponse = await response.json();
+  //     console.log(dataResponse);
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // }
 
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
