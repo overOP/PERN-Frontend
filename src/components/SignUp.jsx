@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {useForm} from 'react-hook-form';
-import axios from 'axios';
+
 import { useNavigate } from 'react-router';
 import Input from './Input';
+import { http } from '../config/axios';
 
 const SignUp = () => {
   //it is used to navigate between pages
@@ -13,7 +14,9 @@ const SignUp = () => {
   //SignUp
 const signup = async (data) => {
   try {
-    const response = await axios.post('http://localhost:3000/users/signUp', data);
+     // Uncomment the line below to use axios directly
+    const response = await http.post('users/signUp', data);
+    // const response = await axios.post(`${import.meta.env.VITE_BACKEND_API}users/signUp`, data);
     console.log(response.data);
     if (response.data.success) {
       alert('SignUp successful');
@@ -21,6 +24,9 @@ const signup = async (data) => {
     // Store the token in local storage
     const accessToken = response.data.accessToken;
     localStorage.setItem('accessToken', accessToken);
+    // Store the user data in local storage
+    const userData = response.data.user;
+    localStorage.setItem('userData', JSON.stringify(userData));
     // Redirect to the home page
     navigate('/');
   } catch (error) {
@@ -47,7 +53,9 @@ const signup = async (data) => {
   //Login
   const login = async (data) => {
     try {
-      const response = await axios.post('http://localhost:3000/users/login', data);
+       // Uncomment the line below to use axios directly
+      const response = await http.post('users/login', data);
+      // const response = await axios.post(`${import.meta.env.VITE_BACKEND_API}users/login`, data);
       console.log(response.data);
       if (response.data.success) {
         alert('Login successful');
@@ -55,6 +63,9 @@ const signup = async (data) => {
       // Store the token in local storage
       const accessToken = response.data.accessToken;
       localStorage.setItem('accessToken', accessToken);
+      // Store the user data in local storage
+      const userData = response.data.user;
+      localStorage.setItem('userData', JSON.stringify(userData));
       // Redirect to the home page
       navigate('/');
     } catch (error) {

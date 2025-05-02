@@ -24,4 +24,9 @@ export const navData = [
         title: "SignUp",
         url: "/signup",
     },
+    {
+        id: 5,
+        title: "Profile",
+        url: "/profile",
+    },
 ];
