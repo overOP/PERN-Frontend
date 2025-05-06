@@ -65,6 +65,7 @@ const PostForm = () => {
   };
 
   return (
+    <div className="bg-[#a6a3d9] min-h-screen p-8 text-[#3d3d3d] font-sans">
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-md"
@@ -146,6 +147,7 @@ const PostForm = () => {
         Submit
       </button>
     </form>
+    </div>
   );
 };
 
