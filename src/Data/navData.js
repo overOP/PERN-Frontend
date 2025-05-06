@@ -15,6 +15,11 @@ export const navData = [
         url: "/form",
     },
     {
+        id:"6",
+        title: "PostForm",
+        url: "/PostForm",
+    },
+    {
         id: 4,
         title: "dataApi",
         url: "/dataApi",

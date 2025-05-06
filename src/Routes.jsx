@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Contact from "./components/Contact";
 import Form from "./components/Form";
+import PostForm from "./components/postForm";
 import DataApi from "./components/dataApi";
 import Profile from "./components/Profile";
 
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: "/form",
                 element: <Form />,
+            },
+            {
+                path: "/postForm",
+                element: <PostForm />,
             },
             {
                 path: "/dataApi",
