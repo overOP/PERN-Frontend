@@ -7,6 +7,7 @@ import Form from "./components/Form";
 import PostForm from "./components/postForm";
 import DataApi from "./components/dataApi";
 import Profile from "./components/Profile";
+import ImgApi from "./components/ImgApi";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
             {
                 path: "/postForm",
                 element: <PostForm />,
+            },
+            {
+                path: "/imgApi",
+                element: <ImgApi />,
             },
             {
                 path: "/dataApi",

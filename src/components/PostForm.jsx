@@ -58,7 +58,6 @@ const PostForm = () => {
        try {
         const response = await http.post("/post", formData)
         console.log(response)
-
        } catch (error) {
           console.log(error)
        }
