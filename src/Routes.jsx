@@ -8,12 +8,17 @@ import PostForm from "./components/postForm";
 import DataApi from "./components/dataApi";
 import Profile from "./components/Profile";
 import ImgApi from "./components/ImgApi";
+import Paginate from "./components/Paginate";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element:<MainLayout />,
         children: [
+            {
+                path: "/paginate",
+                element: <Paginate />,
+            },
             {
                 path: "/",
                 element: <Home />,

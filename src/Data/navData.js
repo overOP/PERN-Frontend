@@ -1,5 +1,10 @@
 export const navData = [
     {
+        id: 0,
+        title: "Paginate",
+        url: "/paginate",
+    },
+    {
         id: 1,
         title: "Home",
         url: "/",
