@@ -5,6 +5,11 @@ export const navData = [
         url: "/paginate",
     },
     {
+        id: 10,
+        title: "Swiper",
+        url: "/swiperComponent",
+    },
+    {
         id: 1,
         title: "Home",
         url: "/",

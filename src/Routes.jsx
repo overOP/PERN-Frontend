@@ -9,12 +9,18 @@ import DataApi from "./components/dataApi";
 import Profile from "./components/Profile";
 import ImgApi from "./components/ImgApi";
 import Paginate from "./components/Paginate";
+import SwiperComponent from "./components/SwiperComponent";
+
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element:<MainLayout />,
         children: [
+            {
+                path: "/swiperComponent",
+                element: <SwiperComponent />,
+            },
             {
                 path: "/paginate",
                 element: <Paginate />,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router";
 import { navData } from "../Data/navData";
 //icons
@@ -9,22 +9,51 @@ const Nav = () => {
   const count = useCart((state) => state.cartCount); // Get cart count from Zustand store
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const [value, setValue] = useState('');
+
+  const [debouncedvalue, setDebouncedValue] = useState('');
 
   const handleMobileMenuClick = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  //Debounced Cart
+  const handlechange = (e) => {
+    setValue(e.target.value);
+  }
+  //useEffect 
+  useEffect(() => {
+    //Debounced function
+    const timerID = setTimeout(() => {
+      setDebouncedValue(value);
+    }, 3000);
+  
+    return () => {
+      clearTimeout(timerID);
+    }
+  }, [value]);
+  
+console.log(debouncedvalue)
   return (
     <div>
       <nav className="bg-gray-900 p-4 text-white">
         <div className="container mx-auto flex items-center justify-between">
           <ul className="text-xl font-bold">Brand</ul>
-          <ul className="hidden space-x-6 md:flex">
+          <ul className="hidden space-x-6 md:flex justify-center items-center">
             {navData.map((item, index) => (
               <li key={index} className="text-gray-300 hover:text-gray-400">
                 <NavLink to={item.url}>{item.title}</NavLink>
               </li>
             ))}
+            {/* Debounced Cart */}
+            <input
+            value={value}
+            onChange={handlechange}
+              type="text"
+              placeholder="Search..."
+              className="px-4 py-2 rounded-md bg-gray-800 text-white focus:outline-none"
+            />
             <li className="text-gray-300 hover:text-gray-400">
               <Link to="/cart">
                 <div className="relative">
