@@ -23,6 +23,7 @@ export const useCart = create((set) => ({
       return {
         cartItem: updatedCart,
         cartCount: updatedCart.reduce((acc, curr) => acc + curr.quantity, 0),
+        // Calculate total quantity of items in cart
       };
     }),
 
