@@ -1,3 +1,5 @@
+//we make this hook to fetch data and store it 
+//we make this fetchUsers function to fetch data
 import { useState, useEffect } from "react";
 import axios from "axios";
 
