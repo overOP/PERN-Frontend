@@ -1,6 +1,7 @@
 import React from 'react'
 import usefetch from '../hook/usefetch'
 
+//dataApi 
 const DataApi = () => {
   const [users, loading, error] = usefetch("http://localhost:3000/users/dataApi");
   console.log(users);
