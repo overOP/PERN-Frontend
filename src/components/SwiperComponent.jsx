@@ -21,6 +21,7 @@ const SwiperComponent = () => {
         spaceBetween={30}
         loop={true}
       >
+      
         <SwiperSlide>
           <img className='w-full' src="https://picsum.photos/500/300?random=1" alt="random image" />
         </SwiperSlide>
