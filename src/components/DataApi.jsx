@@ -25,4 +25,3 @@ const DataApi = () => {
 }
 
 export default DataApi
-
